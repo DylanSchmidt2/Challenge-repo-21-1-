@@ -3,9 +3,7 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return await User.findOne({ _id: context.user._id });
+    me: async (parent, args, context) => {if (context.user) {return await User.findOne({ _id: context.user._id });
       }
       console.log("not logged in");
     },
@@ -19,8 +17,7 @@ const resolvers = {
       return { token, user };
     },
 
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    login: async (parent, { email, password }) => {const user = await User.findOne({ email });
       if (!user) {
         throw new AuthenticationError("No user found with this email address");
       }
