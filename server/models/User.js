@@ -42,13 +42,11 @@ userSchema.pre("save", async function (next) {
 });
 
 // password validation
-userSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
+userSchema.methods.isCorrectPassword = async function (password) {return bcrypt.compare(password, this.password);
 };
 
 // extra field added
-userSchema.virtual("bookCount").get(function () {
-  return this.savedBooks.length;
+userSchema.virtual("bookCount").get(function () {return this.savedBooks.length;
 });
 
 const User = model("User", userSchema);
