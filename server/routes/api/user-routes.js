@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const {
-  createUser,
-  getSingleUser,
-  saveBook,
+  makeUser,
+  findSingleUser,
   deleteBook,
+  saveBook,
   login,
 } = require('../../controllers/user-controller');
 
