@@ -25,3 +25,7 @@ npm run start
 No working MVP (at time of submission).
 ### License
 MIT license. Please refer to the license in the repo
+### Thanks to.
+Richard Martin
+Mithel Konkel
+Mason Russo
