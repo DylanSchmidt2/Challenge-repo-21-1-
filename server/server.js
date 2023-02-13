@@ -10,7 +10,7 @@ const { typeDefs, resolvers } = require("./schemas");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+//requiring dependencies
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -19,14 +19,14 @@ const server = new ApolloServer({
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+//require from ../client/build to create app
 if (process.env.NODE_ENV === "production") {app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  res.sendFile(path.join(__dirname, "../client/build/index.html")); //sending index.html frame
 });
-
+//starting server, invoking middleware
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.Middleware({ app });
