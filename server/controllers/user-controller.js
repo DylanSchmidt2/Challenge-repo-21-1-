@@ -20,7 +20,11 @@ module.exports = {
 
     res.json(foundUser);
   },
+  
+  
   // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
+  
+  
   async createUser({ body }, res) {
     const user = await User.create(body);
 
@@ -30,7 +34,9 @@ module.exports = {
     const token = signToken(user);
     res.json({ token, user });
   },
+  
   //sending token back to '../utils/auth'
+  
   async login({ body }, res) {
     const user = await User.findOne({
       $or: [{ username: body.username }, { email: body.email }],
@@ -51,7 +57,7 @@ module.exports = {
   async saveBook({ user, body }, res) {
     console.log(user);
     try {
-      const updatedUser = await User.findOneAndUpdate(
+      const updateUser = await User.findOneAndUpdate(
         { _id: user._id },
         { $addToSet: { savedBooks: body } },
         { new: true, runValidators: true }
@@ -62,7 +68,9 @@ module.exports = {
       return res.status(400).json(err);
     }
   },
+  
   // remove book from `savedBooks`
+  
   async deleteBook({ user, params }, res) {
     const updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
