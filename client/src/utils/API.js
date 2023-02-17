@@ -1,4 +1,4 @@
-export const getMe = (token) => {
+export const getToken = (token) => {
   return fetch("/api/users/me", {
     headers: {
       "Content-Type": "application/json",
@@ -6,7 +6,9 @@ export const getMe = (token) => {
     },
   });
 };
-
+//
+// create user AND export route
+//
 export const createUser = (userData) => {
   return fetch("/api/users", {
     method: "POST",
@@ -16,7 +18,9 @@ export const createUser = (userData) => {
     body: JSON.stringify(userData),
   });
 };
-
+//
+// login user AND export route
+//
 export const loginUser = (userData) => {
   return fetch("/api/users/login", {
     method: "POST",
@@ -26,7 +30,9 @@ export const loginUser = (userData) => {
     body: JSON.stringify(userData),
   });
 };
-
+//
+// save book AND export route
+//
 export const saveBook = (bookData, token) => {
   return fetch("/api/users", {
     method: "PUT",
@@ -37,7 +43,9 @@ export const saveBook = (bookData, token) => {
     body: JSON.stringify(bookData),
   });
 };
-
+//
+// delete book AND export route
+//
 export const deleteBook = (bookId, token) => {
   return fetch(`/api/users/books/${bookId}`, {
     method: "DELETE",
