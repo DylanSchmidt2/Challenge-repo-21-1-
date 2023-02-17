@@ -2,7 +2,9 @@ const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
 const bookSchema = require("./Book");
-
+//
+// User Model
+//
 const userSchema = new Schema(
   {
     username: {
@@ -30,8 +32,9 @@ const userSchema = new Schema(
     },
   }
 );
-
+//
 // hashed password
+//
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
