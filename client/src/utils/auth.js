@@ -1,10 +1,13 @@
 import decode from "jwt-decode";
+//importing decode from ./jwt-decode
 
 class AuthService {
   getProfile() {
     return decode(this.getToken());
   }
-
+//
+//check if logged in with token
+//
   loggedIn() {
     const token = this.getToken();
     return !!token && !this.isTokenExpired(token);
